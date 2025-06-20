@@ -1,8 +1,8 @@
 import tkinter as tk
 
 class MainPage(tk.Frame):
-    def __init__(self, root=None):
-        super().__init__(root)
+    def __init__(self):
+        super().__init__()
         self.grid()
         self.create_widgets()
 
