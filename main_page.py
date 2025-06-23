@@ -1,26 +1,28 @@
 import tkinter as tk
+from gc import collect
+
 
 class MainPage(tk.Frame):
     def __init__(self, root=None):
         super().__init__(root)
+        self.configure(bg="#f5f5dc") # Assign window beige color
         self.grid()
         self.create_widgets()
 
     def create_widgets(self):
+        # Create, style, and place exit button
+        tk.Button(self, text="Quit", font=("Cambria, 15"), command=self.quit).grid(row=0, column=0, sticky="e", padx=10, pady=(20, 20))
+
+        # Create and position page title
         self.page_title = tk.Label(self, text="Flourishing Blotts", font=("Cambria", 40))
         self.page_title.config(bg="#00ffff")
-        self.page_title.grid(row=0, column=2, pady=(100, 20))
-        self.quit_button = tk.Button(self, text="Quit", command=self.quit)
-        self.quit_button.grid(row=1, column=2)
+        self.page_title.grid(pady=(100, 20))
 
-# Define root
+
+# Define root window
 root = tk.Tk()
 root.title("Flourishing Blotts")
-root.attributes("-fullscreen", True)
-root.columnconfigure(0, weight=1)
-root.columnconfigure(1, weight=1)
-root.columnconfigure(2, weight=1)
+root.configure(bg="#f5f5dc") # Assign root beige color
+root.attributes("-fullscreen", True) # Enable fullscreen3
 
-# Instantiate and run our main page
-main_page = MainPage(root)
-main_page.mainloop()
+main_page = MainPage(root).mainloop() # Instantiate and run main page
