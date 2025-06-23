@@ -3,7 +3,7 @@ import tkinter as tk
 # Constants
 BACKGROUND_COLOR = "#f5f5dc" # Beige
 BOOKSTORE_TITLE = "Flourishing Blotts"
-#consider making const var for cambria
+DEFAULT_FONT = "Cambria"
 
 class MainPage(tk.Frame):
     def __init__(self, root=None):
@@ -14,10 +14,10 @@ class MainPage(tk.Frame):
 
     def create_widgets(self):
         # Create, style, and place exit button
-        tk.Button(self, text="Quit", font=("Cambria", 15), command=self.quit).grid(row=0, column=2, pady=(20, 20), padx=20)
+        tk.Button(self, text="Quit", font=(DEFAULT_FONT, 15), command=self.quit).grid(row=0, column=2, pady=(20, 20), padx=20)
 
         # Create and position page title
-        self.page_title = tk.Label(self, text=BOOKSTORE_TITLE, font=("Cambria", 40))
+        self.page_title = tk.Label(self, text=BOOKSTORE_TITLE, font=(DEFAULT_FONT, 40))
         self.page_title.config(bg="#00ffff")
         self.page_title.grid(row=1, column=1, pady=(100, 20), padx=20)
 
