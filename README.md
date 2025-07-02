@@ -22,7 +22,7 @@ Ultimately, these are my goals for the project:
 ## Style Considerations
 
 
-## Big Thanks To . . . 
+## Big Thanks To
 - [Wikipedia's Tkinter article](https://en.wikipedia.org/wiki/Tkinter), especially the section on the [object-oriented implementation](https://en.wikipedia.org/wiki/Tkinter#Simple_application).
 - [WVU's Don McLaughlin](https://directory.statler.wvu.edu/faculty-staff-directory/don-mclaughlin), who introduced me to Tkinter last year and assigned me the homework upon which this project is based.
 - ChatGPT, my best buddy.
