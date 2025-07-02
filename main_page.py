@@ -3,23 +3,23 @@ import tkinter as tk
 # Constants
 BACKGROUND_COLOR = "#f5f5dc" # Beige
 BOOKSTORE_TITLE = "Flourishing Blotts"
-DEFAULT_FONT = "Cambria"
+RIGHT = tk.RIGHT
 
 class MainPage(tk.Frame):
-    def __init__(self, root=None):
+    def __init__(self, root=None, background_color=BACKGROUND_COLOR, font_name="cambria"):
         super().__init__(root)
-        self.configure(bg=BACKGROUND_COLOR) # Assign window beige color
-        self.grid()
-        self.create_widgets()
+        self.configure(bg=background_color) # Assign window beige color
+        self.pack()
+        self.create_widgets(background_color, font_name)
 
-    def create_widgets(self):
+    def create_widgets(self, background_color, font_name, bookstore_title=BOOKSTORE_TITLE):
         # Create, style, and place exit button
-        tk.Button(self, text="Quit", font=(DEFAULT_FONT, 15), command=self.quit).grid(row=0, column=2, pady=(20, 20), padx=20)
+        tk.Button(self, text="Quit", font=(font_name, 15), command=self.quit).pack(side=RIGHT, padx=20, pady=20)
 
         # Create and position page title
-        self.page_title = tk.Label(self, text=BOOKSTORE_TITLE, font=(DEFAULT_FONT, 40))
-        self.page_title.config(bg="#00ffff")
-        self.page_title.grid(row=1, column=1, pady=(100, 20), padx=20)
+        self.page_title = tk.Label(self, text=bookstore_title, font=(font_name, 40))
+        self.page_title.config(bg=background_color)
+        self.page_title.pack(pady=100)
 
 
 # Define root window
