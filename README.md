@@ -6,14 +6,15 @@ Anyone that's taken Computer Graphics at WVU in the past few years will likely r
 
 Luckily I slid by with a decent grade on the assignment, but it stuck around in the back of my mind for a while, and eventually found itself on the list of projects I was interested in grinding out properly. At first, I attempted refactoring most of the code, but I soon decided that starting from scatch would not only be much easier, but also enable me to learn a lot more.
 
-Ultimately, these are my goals for this repository:
-- Improved coding style (PEP8)
-- Better OOP (particularly with regard to separation of concerns)
-- A prettier application
-- Expanded functionality (new features, custom book lists)
+Ultimately, these are my goals for the project:
+- Improved coding style (PEP8).
+- Better OOP (particularly with regard to separation of concerns).
+- A prettier application.
+- Expanded functionality (new features, custom book lists).
 - Deployment as an executable
-- Cementation of my Python fundamentals
-- Expertise with Tkinter
+- Cementation of my Python fundamentals.
+- Expertise with Tkinter.
+- A well-crafted implementation of Tkinter that can serve as a reference for other prospective GUI gods.
 - A fully realized project written with a technology that, despite not being very trendy, is powerful, easy-to-use, and genuinely interesting to me.
 
 ## Design Philosophy
@@ -21,7 +22,7 @@ Ultimately, these are my goals for this repository:
 ## Style Considerations
 
 
-## Big thanks to:
+## Big Thanks To . . . 
 - [Wikipedia's Tkinter article](https://en.wikipedia.org/wiki/Tkinter), especially the section on the [object-oriented implementation](https://en.wikipedia.org/wiki/Tkinter#Simple_application).
 - [WVU's Don McLaughlin](https://directory.statler.wvu.edu/faculty-staff-directory/don-mclaughlin), who introduced me to Tkinter last year and assigned me the homework upon which this project is based.
 - ChatGPT, my best buddy.
