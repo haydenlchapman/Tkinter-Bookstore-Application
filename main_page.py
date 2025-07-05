@@ -7,17 +7,17 @@ RIGHT = tk.RIGHT
 
 class MainPage(tk.Frame):
     def __init__(self, root=None, background_color=BACKGROUND_COLOR, font_name="Cambria", page_title=BOOKSTORE_TITLE):
-        super().__init__(root)
-        self.configure(bg=background_color) # Assign window beige color
-        self.pack()
+        super().__init__(root) # Create our frame in the root window
+        self.configure(bg=background_color)
+        self.pack(expand=True, fill="both")
         self.create_widgets(background_color, font_name, page_title)
 
-    def create_widgets(self, background_color, font_name, bookstore_title):
+    def create_widgets(self, background_color, font_name, page_title):
         # Create, style, and place exit button
-        tk.Button(self, text="Quit", font=(font_name, 15), command=self.quit).pack(side=RIGHT, padx=20, pady=20)
+        tk.Button(self, text="Quit", font=(font_name, 15), command=self.quit).pack(padx=40, pady=25, anchor="ne")
 
         # Create and position page title
-        self.page_title = tk.Label(self, text=bookstore_title, font=(font_name, 40))
+        self.page_title = tk.Label(self, text=page_title, font=(font_name, 40))
         self.page_title.config(bg=background_color)
         self.page_title.pack(pady=100)
 
