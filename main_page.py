@@ -3,7 +3,6 @@ import tkinter as tk
 # Constants
 BACKGROUND_COLOR = "#f5f5dc" # Beige
 BOOKSTORE_TITLE = "Flourishing Blotts"
-RIGHT = tk.RIGHT
 
 class MainPage(tk.Frame):
     def __init__(self, root=None, background_color=BACKGROUND_COLOR, font_name="Cambria", page_title=BOOKSTORE_TITLE):
@@ -13,7 +12,7 @@ class MainPage(tk.Frame):
         self.create_widgets(background_color, font_name, page_title)
 
     def create_widgets(self, background_color, font_name, page_title):
-        # Create, style, and place exit button
+        # Create, style, and pack quit button
         tk.Button(self, text="Quit", font=(font_name, 15), command=self.quit).pack(padx=40, pady=25, anchor="ne")
 
         # Create and position page title
