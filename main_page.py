@@ -6,7 +6,7 @@ BOOKSTORE_TITLE = "Flourishing Blotts"
 RIGHT = tk.RIGHT
 
 class MainPage(tk.Frame):
-    def __init__(self, root=None, background_color=BACKGROUND_COLOR, font_name="cambria"):
+    def __init__(self, root=None, background_color=BACKGROUND_COLOR, font_name="Cambria"):
         super().__init__(root)
         self.configure(bg=background_color) # Assign window beige color
         self.pack()
