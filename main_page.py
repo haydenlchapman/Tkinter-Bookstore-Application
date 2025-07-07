@@ -28,8 +28,6 @@ class MainPage(tk.Frame):
         book_button = tk.Button(book_catalogue, text="Hello,World!", font=("Cambria", 16))
         book_button.pack()
 
-
-
 class Catalogue(tk.Frame):
     def __init__(self, root=None, background_color=BACKGROUND_COLOR):
         super().__init__(root)
