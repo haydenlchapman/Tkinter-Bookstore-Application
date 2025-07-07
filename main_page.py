@@ -14,7 +14,7 @@ class MainPage(tk.Frame):
 
     def create_widgets(self, background_color, font_name, page_title):
         # Create, style, and pack quit button
-        tk.Button(self, text="Quit", font=(font_name, 15), command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
+        tk.Button(self, text="Quit", font=(font_name, 15), bg="#B0C4DE", command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
 
         # Create and position page title
         self.page_title = tk.Label(self, text=page_title, font=(font_name, 40))
