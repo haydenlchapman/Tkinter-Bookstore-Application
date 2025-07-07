@@ -1,4 +1,9 @@
 import tkinter as tk
+import random
+
+from PIL import ImageTk, Image
+
+from books.book_list import book_list
 
 # Constants
 BACKGROUND_COLOR = "#f5f5dc" # Beige
