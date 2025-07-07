@@ -1,8 +1,3 @@
-import tkinter as tk
-import random
-
-import main_page # For accessing constants
-
 class Book():
     def __init__(self, title, genre, author, year, publisher, cover_path):
         self.title = title
