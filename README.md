@@ -26,5 +26,5 @@ Ultimately, these are my goals for the project:
 - [Wikipedia's Tkinter article](https://en.wikipedia.org/wiki/Tkinter), especially the section on the [object-oriented implementation](https://en.wikipedia.org/wiki/Tkinter#Simple_application).
 - [WVU's Don McLaughlin](https://directory.statler.wvu.edu/faculty-staff-directory/don-mclaughlin), who introduced me to Tkinter last year and assigned me the homework upon which this project is based.
 - ChatGPT, my best buddy.
-- [Neuraline](https://www.youtube.com/@NeuralNine)'s [video on Tkinter](https://www.youtube.com/watch?v=ibf5cx221hk&t=954s&pp=ygUwVGtpbnRlciBCZWdpbm5lciBDb3Vyc2UgLSBQeXRob24gR1VJIERldmVsb3BtZW50), which was by far the most succint and practically useful tutorial I could find.
+- [Neuraline](https://www.youtube.com/@NeuralNine)'s [video on Tkinter](https://www.youtube.com/watch?v=ibf5cx221hk&t=954s&pp=ygUwVGtpbnRlciBCZWdpbm5lciBDb3Vyc2UgLSBQeXRob24gR1VJIERldmVsb3BtZW50), which was by far the most succint and useful tutorial I could find.
 - [The official documentation](https://docs.python.org/3/library/tkinter.html), which I found to be exceptionally well-written and full of great examples.
