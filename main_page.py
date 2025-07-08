@@ -28,16 +28,18 @@ class MainPage(tk.Frame):
 
         # Create and pack book catalogue
         book_catalogue = tk.Frame(self)
+        book_catalogue.configure(bg=background_color)
         book_catalogue.pack()
 
         # Shuffle book list and use grid to add them into the catalogue in order; this can be a method later
+        self.image_refs = [] # Maintain a list of books to prevent garbage collection
         random.shuffle(book_list)
-        for book in book_list:
-            pass # Should add books to catalogue; not sure exactly how to do that yet
-
-        book_catalogue.configure(bg=background_color)
-        book_button = tk.Button(book_catalogue, text="Hello,World!", font=("Cambria", 16))
-        book_button.pack()
+        for i in range(2):
+            book_cover = Image.open(book_list[i].cover_path)
+            book_cover = ImageTk.PhotoImage(book_cover) # Converts into a Tk-compatible image
+            book_entry = tk.Label(book_catalogue, image=book_cover)
+            book_entry.grid(column=i, row=0)
+            self.image_refs.append(book_cover)  # Prevent garbage collection
 
 # Define root window
 root = tk.Tk()
