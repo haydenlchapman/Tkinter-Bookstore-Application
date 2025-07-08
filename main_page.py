@@ -26,10 +26,14 @@ class MainPage(tk.Frame):
         self.page_title.config(bg=background_color)
         self.page_title.pack(pady=100)
 
+        # Create and position search bar
+        search_bar = tk.Text()
+        search_bar.pack()
+
         self.create_book_widgets(background_color)
 
     def create_book_widgets(self, background_color):
-        # Create and pack book catalogue
+        # Create and position book catalogue
         book_catalogue = tk.Frame(self)
         book_catalogue.configure(bg=background_color)
         book_catalogue.pack()
