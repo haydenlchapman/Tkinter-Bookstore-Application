@@ -42,7 +42,7 @@ class MainPage(tk.Frame):
         self.image_refs = []  # Maintain a list of books to prevent garbage collection after loop terminates
         random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order of genre
         for i in range(2):
-            book_cover = Image.open(book_list[i].cover_path) # Access book's cover at its specified path
+            book_cover = Image.open(book_list[i].cover_path).resize((315, 475)) # Access book's cover at its specified path
             book_cover = ImageTk.PhotoImage(book_cover)  # Convert cover into a Tk-compatible image
             book_entry = tk.Label(book_catalogue, image=book_cover)
             book_entry.grid(column=i, row=0)
