@@ -30,7 +30,7 @@ class MainPage(tk.Frame):
         book_catalogue = tk.Frame(self)
         book_catalogue.pack()
 
-        # Shuffle book list and use grid to add them into the catalogue in order
+        # Shuffle book list and use grid to add them into the catalogue in order; this can be a method later
         random.shuffle(book_list)
         for book in book_list:
             pass # Should add books to catalogue; not sure exactly how to do that yet
