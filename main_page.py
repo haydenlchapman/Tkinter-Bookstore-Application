@@ -44,7 +44,7 @@ class MainPage(tk.Frame):
         for i in range(2):
             book_cover = Image.open(book_list[i].cover_path).resize((315, 475)) # Access book's cover at its specified path
             book_cover = ImageTk.PhotoImage(book_cover)  # Convert cover into a Tk-compatible image
-            book_entry = tk.Label(book_catalogue, image=book_cover)
+            book_entry = tk.Button(book_catalogue, image=book_cover, bd=0)
             book_entry.grid(column=i, row=0)
             self.image_refs.append(book_cover)
 
