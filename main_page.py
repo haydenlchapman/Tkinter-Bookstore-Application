@@ -31,6 +31,9 @@ class MainPage(tk.Frame):
         search_bar = tk.Text(self, height=2, font=(font_name, 16))
         search_bar.pack(pady=20)
 
+        search_button = tk.Button(self, text="Search", bg=button_color, font=(font_name, 15))
+        search_button.pack(side=tk.RIGHT, padx=5)
+
         self.create_book_widgets(background_color)
 
     def create_book_widgets(self, background_color):
