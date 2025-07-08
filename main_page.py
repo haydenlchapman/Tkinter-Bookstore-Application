@@ -26,20 +26,23 @@ class MainPage(tk.Frame):
         self.page_title.config(bg=background_color)
         self.page_title.pack(pady=100)
 
+        self.create_book_widgets(background_color)
+
+    def create_book_widgets(self, background_color):
         # Create and pack book catalogue
         book_catalogue = tk.Frame(self)
         book_catalogue.configure(bg=background_color)
         book_catalogue.pack()
 
-        # Shuffle book list and use grid to add them into the catalogue in order; this can be a method later
-        self.image_refs = [] # Maintain a list of books to prevent garbage collection
-        random.shuffle(book_list)
+        # Create books and add them to the book catalogue frame
+        self.image_refs = []  # Maintain a list of books to prevent garbage collection after loop terminates
+        random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order of genre
         for i in range(2):
-            book_cover = Image.open(book_list[i].cover_path)
-            book_cover = ImageTk.PhotoImage(book_cover) # Converts into a Tk-compatible image
+            book_cover = Image.open(book_list[i].cover_path) # Access book's cover at its specified path
+            book_cover = ImageTk.PhotoImage(book_cover)  # Convert cover into a Tk-compatible image
             book_entry = tk.Label(book_catalogue, image=book_cover)
             book_entry.grid(column=i, row=0)
-            self.image_refs.append(book_cover)  # Prevent garbage collection
+            self.image_refs.append(book_cover)
 
 # Define root window
 root = tk.Tk()
