@@ -27,8 +27,8 @@ class MainPage(tk.Frame):
         self.page_title.pack(pady=100)
 
         # Create and position search bar
-        search_bar = tk.Text()
-        search_bar.pack()
+        search_bar = tk.Text(self, height=2, font=("Cambria", 16))
+        search_bar.pack(pady=20)
 
         self.create_book_widgets(background_color)
 
