@@ -26,9 +26,15 @@ class MainPage(tk.Frame):
         self.page_title.config(bg=background_color)
         self.page_title.pack(pady=100)
 
-        # Create and populate book catalogue
+        # Create and pack book catalogue
         book_catalogue = tk.Frame(self)
         book_catalogue.pack()
+
+        # Shuffle book list and use grid to add them into the catalogue in order
+        random.shuffle(book_list)
+        for book in book_list:
+            pass # Should add books to catalogue; not sure exactly how to do that yet
+
         book_catalogue.configure(bg=background_color)
         book_button = tk.Button(book_catalogue, text="Hello,World!", font=("Cambria", 16))
         book_button.pack()
