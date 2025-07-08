@@ -8,9 +8,10 @@ from books.book_list import book_list
 # Constants
 BACKGROUND_COLOR = "#f5f5dc" # Beige
 BOOKSTORE_TITLE = "Flourishing Blotts"
+DEFAULT_FONT = "Cambria"
 
 class MainPage(tk.Frame):
-    def __init__(self, root=None, background_color=BACKGROUND_COLOR, font_name="Cambria", page_title=BOOKSTORE_TITLE, button_color="#B0C4DE"):
+    def __init__(self, root=None, background_color=BACKGROUND_COLOR, font_name=DEFAULT_FONT, page_title=BOOKSTORE_TITLE, button_color="#B0C4DE"):
         super().__init__(root) # Create our frame in the root window
         self.configure(bg=background_color)
         self.pack(fill=tk.X)
@@ -27,7 +28,7 @@ class MainPage(tk.Frame):
         self.page_title.pack(pady=100)
 
         # Create and position search bar
-        search_bar = tk.Text(self, height=2, font=("Cambria", 16))
+        search_bar = tk.Text(self, height=2, font=(DEFAULT_FONT, 16))
         search_bar.pack(pady=20)
 
         self.create_book_widgets(background_color)
