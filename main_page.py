@@ -27,12 +27,18 @@ class MainPage(tk.Frame):
         self.page_title.config(bg=background_color)
         self.page_title.pack(pady=100)
 
-        search_button = tk.Button(self, text="Search", bg=button_color, font=(font_name, 15))
-        search_button.pack(side=tk.RIGHT, padx=5)
+        # Create frame for packing search bar and search button side-by-side
+        search_widgets = tk.Frame(self, background=background_color)
 
         # Create and position search bar
-        search_bar = tk.Text(self, height=2, font=(font_name, 16))
-        search_bar.pack(pady=20)
+        search_bar = tk.Text(search_widgets, height=2, font=(font_name, 16))
+        search_bar.pack(side=tk.LEFT, pady=20)
+
+        # Create and position search button
+        search_button = tk.Button(search_widgets, text="Search", bg=button_color, font=(font_name, 15))
+        search_button.pack(side=tk.LEFT, padx=5)
+
+        search_widgets.pack()
 
         self.create_book_widgets(background_color)
 
