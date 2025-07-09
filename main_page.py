@@ -27,12 +27,12 @@ class MainPage(tk.Frame):
         self.page_title.config(bg=background_color)
         self.page_title.pack(pady=100)
 
-        # Create and position search bar
-        search_bar = tk.Text(self, height=2, font=(font_name, 16))
-        search_bar.pack(pady=20)
-
         search_button = tk.Button(self, text="Search", bg=button_color, font=(font_name, 15))
         search_button.pack(side=tk.RIGHT, padx=5)
+
+        # # Create and position search bar
+        # search_bar = tk.Text(self, height=2, font=(font_name, 16))
+        # search_bar.pack(pady=20)
 
         self.create_book_widgets(background_color)
 
@@ -46,7 +46,7 @@ class MainPage(tk.Frame):
         self.image_refs = []  # Maintain a list of books to prevent garbage collection after loop terminates
         random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order of genre
         for i in range(2):
-            book_cover = Image.open(book_list[i].cover_path).resize((315, 475)) # Access book's cover at its specified path
+            book_cover = Image.open(book_list[i].cover_path).resize((252, 380)) # Access book's cover at its specified path
             book_cover = ImageTk.PhotoImage(book_cover)  # Convert cover into a Tk-compatible image
             book_entry = tk.Button(book_catalogue, image=book_cover, bd=0)
             book_entry.grid(column=i, row=0)
