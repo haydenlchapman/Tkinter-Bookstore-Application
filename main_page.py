@@ -1,5 +1,6 @@
 import random
 import tkinter as tk
+from operator import indexOf
 from tkinter import ttk
 
 from PIL import ImageTk, Image
@@ -52,12 +53,21 @@ class MainPage(tk.Frame):
         # Create books and add them to the book catalogue frame
         self.image_refs = []  # Maintain a list of books to prevent garbage collection of books after loop terminates
         random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order of genre
-        for book in book_list:
+
+        book_row, book_column = 0, 0
+        for book_index, book in enumerate(book_list):
             book_cover = Image.open(book.cover_path).resize((252, 380)) # Access book's cover at its specified path
             book_cover = ImageTk.PhotoImage(book_cover)  # Convert cover into a Tk-compatible image
             book_entry = tk.Button(book_catalogue, image=book_cover, bd=0)
-            book_entry.grid()
+            book_entry.grid(row=book_row, column=book_column, padx=10, pady=10)
             self.image_refs.append(book_cover)
+
+            # Update grid position such that there are 5 books per row
+            if book_index % 5 == 0 and book_index != 0:
+                book_row += 1
+                book_column = 0
+            elif book_index != 0:
+                book_column += 1
 
 # Define root window
 root = tk.Tk()
