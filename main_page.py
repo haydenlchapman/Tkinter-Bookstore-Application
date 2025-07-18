@@ -50,13 +50,13 @@ class MainPage(tk.Frame):
         book_catalogue.pack()
 
         # Create books and add them to the book catalogue frame
-        self.image_refs = []  # Maintain a list of books to prevent garbage collection after loop terminates
+        self.image_refs = []  # Maintain a list of books to prevent garbage collection of books after loop terminates
         random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order of genre
-        for i in range(2):
-            book_cover = Image.open(book_list[i].cover_path).resize((252, 380)) # Access book's cover at its specified path
+        for book in book_list:
+            book_cover = Image.open(book.cover_path).resize((252, 380)) # Access book's cover at its specified path
             book_cover = ImageTk.PhotoImage(book_cover)  # Convert cover into a Tk-compatible image
             book_entry = tk.Button(book_catalogue, image=book_cover, bd=0)
-            book_entry.grid(column=i, row=0)
+            book_entry.grid()
             self.image_refs.append(book_cover)
 
 # Define root window
