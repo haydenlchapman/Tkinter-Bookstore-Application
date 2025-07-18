@@ -53,7 +53,6 @@ class MainPage(tk.Frame):
         # Create books and add them to the book catalogue frame
         self.image_refs = []  # Maintain a list of books to prevent garbage collection of books after loop terminates
         random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order of genre
-
         book_row, book_column = 0, 0
         for book_index, book in enumerate(book_list):
             book_cover = Image.open(book.cover_path).resize((252, 380)) # Access book's cover at its specified path
