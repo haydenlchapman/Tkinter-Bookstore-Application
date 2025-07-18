@@ -1,6 +1,5 @@
 import random
 import tkinter as tk
-from operator import indexOf
 from tkinter import ttk
 
 from PIL import ImageTk, Image
