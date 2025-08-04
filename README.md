@@ -6,7 +6,7 @@ Anyone that's taken Computer Graphics at WVU in the past few years will likely r
 
 Luckily I slid by with a decent grade on the assignment, but it stuck around in the back of my mind for a while, and eventually found itself on the list of projects I was interested in grinding out properly. At first, I attempted refactoring the existing code, but it wasn't long before I decided that starting from scatch would be both easier and more conducive to learning.
 
-Ultimately, these are my goals for the project:
+Ultimately, I entered this project with the following objectives in mind:
 - Improved coding style (PEP8).
 - Better OOP (particularly with regard to separation of concerns).
 - A prettier application.
@@ -28,3 +28,4 @@ Ultimately, these are my goals for the project:
 - ChatGPT, my best buddy.
 - [Neuraline](https://www.youtube.com/@NeuralNine)'s [video on Tkinter](https://www.youtube.com/watch?v=ibf5cx221hk&t=954s&pp=ygUwVGtpbnRlciBCZWdpbm5lciBDb3Vyc2UgLSBQeXRob24gR1VJIERldmVsb3BtZW50), which was by far the most succint and useful tutorial I could find.
 - [The official documentation](https://docs.python.org/3/library/tkinter.html), which I found to be exceptionally well-written and full of great examples.
+- [Codemy.com's channel](https://www.youtube.com/@Codemycom/videos), which was full of highly relevant and well-crafted tutorials.
