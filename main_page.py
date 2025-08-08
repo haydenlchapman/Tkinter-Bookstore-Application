@@ -27,7 +27,7 @@ class MainPage(tk.Frame):
         self.page_title.config(bg=background_color)
         self.page_title.pack(pady=100)
 
-        # Create and position search bar and search button beside one another.
+        # Create and position search bar and search button beside one another
         search_widgets = tk.Frame(self, background=background_color)
         tk.Entry(search_widgets, font=(font_name, 16)).pack(side=tk.LEFT, pady=20) # Search bar
         tk.Button(search_widgets, text="Search", bg=button_color, font=(font_name, 15)).pack(side=tk.LEFT, padx=5) # Search button
