@@ -4,7 +4,7 @@ book_list = [
     # Fantasy
     Book("The Hobbit", "Fantasy", "J.R.R. Tolkien", 1937, "George Allen & Unwin", "books/covers/the_hobbit.jpg"),
     Book("A Game of Thrones", "Fantasy", "George R. R. Martin", 1996, "Bantam Spectra", "books/covers/a_game_of_thrones.jpg"),
-    Book("World of Warcraft: Illidan", "Fantasy", "William King", 2016, "Del Rey Books", "books/covers/world_of_warcraft_illidan"),
+    Book("World of Warcraft: Illidan", "Fantasy", "William King", 2016, "Del Rey Books", "books/covers/world_of_warcraft_illidan.jpg"),
     Book("Mistborn: The Final Empire", "Fantasy", "Brandon Sanderson", 2006, "Tor Books", "books/covers/mistborn_final_empire.jpg"),
     Book("The Way of Kings", "Fantasy", "Brandon Sanderson", 2010, "Tor Books", "books/covers/the_way_of_kings.jpg"),
     Book("Eragon", "Fantasy", "Christopher Paolini", 2002, "Paolini LLC", "books/covers/eragon.jpg"),
