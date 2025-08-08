@@ -65,4 +65,4 @@ root.title(BOOKSTORE_TITLE)
 root.configure(bg=BACKGROUND_COLOR) # Assign root beige color
 root.attributes("-fullscreen", True) # Enable fullscreen
 
-MainPage(root).mainloop() # Instantiate and run main page
+MainPage().mainloop() # Instantiate and run main page
