@@ -17,7 +17,6 @@ class MainPage(tk.Frame):
         self.configure(bg=background_color)
         self.pack(fill=tk.X)
         self.create_widgets(button_color, background_color, font_name, page_title)
-        self.mainloop() # Run page
 
     def create_widgets(self, button_color, background_color, font_name, page_title):
         # Create, style, and pack quit button
@@ -73,4 +72,4 @@ root.title(BOOKSTORE_TITLE)
 root.configure(bg=BACKGROUND_COLOR) # Assign root beige color
 root.attributes("-fullscreen", True) # Enable fullscreen
 
-MainPage(root) # Instantiate and run main page
+MainPage(root).mainloop() # Instantiate and run main page
