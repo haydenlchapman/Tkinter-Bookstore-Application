@@ -4,7 +4,7 @@ A Tkinter-powered mock bookstore app! A recreation of my first-ever Python proje
 ## Background and Motivation
 Anyone that's taken Computer Graphics at WVU in the past few years will likely recognize this project. In the *exceedingly rare* chance that you don't fall into that category, our class was tasked with using Tkinter to construct a mock-bookstore application just the like the one you'll find here. Unfortunately for me, this assignment served as not only my introduction to GUI programming, but also as my first significant Python deliverable. Needless to say, it had a lot of problems. My parameter lists were exceptionally long for no reason, I haphazardly attempted an object-oriented approach but didn't make use of it, my coding style was unconventional, and, worst of all, my application was ugly.
 
-Luckily I slid by with a decent grade on the assignment, but the experience stuck with me, and eventually found itself on the list of projects I was interested in giving the proper time of day. At first, I attempted refactoring my existing code, but it wasn't long before I decided that starting from scatch would not only be much easier, but also benefit my learning a lot more in the long run.
+Luckily I slid by with a decent grade on the assignment, but the experience stuck with me, and the project eventually found itself on the list of projects I was interested in grinding out properly one day. At first, I attempted refactoring my existing code, but it wasn't long before I decided that starting from scatch would not only be much easier, but also benefit my learning a lot more in the long run.
 
 Ultimately, I began this project with the following objectives in mind:
 - Improved coding style (PEP8).
@@ -14,7 +14,7 @@ Ultimately, I began this project with the following objectives in mind:
 - Deployment as an executable.
 - Cementation of my Python fundamentals.
 - Expertise with Tkinter.
-- A well-crafted implementation of Tkinter that might serve as a reference for others looking to learn the library.
+- A well-crafted implementation of Tkinter that might serve as a reference for others interested in learning the library.
 
 ## Design Philosophy
 
