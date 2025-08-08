@@ -14,7 +14,7 @@ Ultimately, I began this project with the following objectives in mind:
 - Deployment as an executable.
 - Cementation of my Python fundamentals.
 - Expertise with Tkinter.
-- A well-crafted implementation of Tkinter that might serve as a reference for others looking to learn the library.
+- A well-crafted implementation of Tkinter that might serve as a reference for others interested in learning the library.
 
 ## Design Philosophy
 
