@@ -59,6 +59,18 @@ class MainPage(tk.Frame):
             elif book_index != 0:
                 book_column += 1
 
+    def create_canvas(self):
+        # Configure canvas and scrollbar
+        canvas = tk.Canvas(self)
+        canvas.pack(fill="both", expand=True)
+        scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=canvas.yview)
+        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        canvas.configure(yscrollcommand=scrollbar.set)
+        canvas.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+
+        canvas_frame = tk.Frame(canvas)
+        canvas.create_window((0, 0), window=canvas_frame, anchor=tk.NE)
+
 # Define root window
 root = tk.Tk()
 root.title(BOOKSTORE_TITLE)
