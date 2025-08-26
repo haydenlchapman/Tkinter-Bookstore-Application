@@ -6,7 +6,7 @@ Anyone that's taken Computer Graphics at WVU in the past few years will likely r
 
 Luckily I slid by with a decent grade on the assignment, but the experience stuck with me, and it eventually found itself on my project backlog. At first, I attempted refactoring my existing code, but it wasn't long before I decided that starting from scatch would not only be much easier, but also benefit my learning a lot more in the long run.
 
-Ultimately, I began this project with the following objectives in mind:
+Ultimately, I went into this project with the following objectives in mind:
 - Improved coding style (PEP8).
 - Better OOP (particularly with regard to separation of concerns).
 - A prettier application.
