@@ -16,19 +16,23 @@ class MainPage(tk.Frame):
         super().__init__(root) # Create our frame in the root window
         self.configure(bg=background_color)
         self.pack(fill=tk.BOTH, expand=True)
+
+        # Canvas
+        self.create_canvas(background_color)
+
         self.create_widgets(button_color, background_color, font_name, page_title)
 
     def create_widgets(self, button_color, background_color, font_name, page_title):
         # Quit button
-        tk.Button(self, text="Quit", font=(font_name, 15), bg=button_color, command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
+        tk.Button(self.canvas_frame, text="Quit", font=(font_name, 15), bg=button_color, command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
 
         # Page title
-        self.page_title = tk.Label(self, text=page_title, font=(font_name, 40))
+        self.page_title = tk.Label(self.canvas_frame, text=page_title, font=(font_name, 40))
         self.page_title.config(bg=background_color)
         self.page_title.pack(pady=100)
 
         # Search bar and search button
-        search_widgets = tk.Frame(self, background=background_color)
+        search_widgets = tk.Frame(self.canvas_frame, background=background_color)
         tk.Entry(search_widgets, font=(font_name, 16)).pack(side=tk.LEFT, pady=20) # Search bar
         tk.Button(search_widgets, text="Search", bg=button_color, font=(font_name, 15)).pack(side=tk.LEFT, padx=5) # Search button
         search_widgets.pack()
@@ -37,7 +41,7 @@ class MainPage(tk.Frame):
 
     def create_book_widgets(self, background_color):
         # Book catalogue frame
-        book_catalogue = tk.Frame(self)
+        book_catalogue = tk.Frame(self.canvas_frame)
         book_catalogue.configure(bg=background_color)
         book_catalogue.pack()
 
@@ -59,17 +63,20 @@ class MainPage(tk.Frame):
             elif book_index != 0:
                 book_column += 1
 
-    def create_canvas(self):
+    def create_canvas(self, background_color):
         # Canvas and scrollbar
-        canvas = tk.Canvas(self)
-        canvas.pack(fill="both", expand=True)
+        canvas = tk.Canvas(self, bg=background_color)
+        canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=canvas.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         canvas.configure(yscrollcommand=scrollbar.set)
         canvas.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
 
-        canvas_frame = tk.Frame(canvas)
-        canvas.create_window((0, 0), window=canvas_frame, anchor=tk.NE)
+        self.canvas_frame = tk.Frame(canvas, bg=background_color)
+
+        # I wish I could use a an expand/fill type of strategy here, but idk how so i just passed bg color to everything
+        # Additionally, I think this is what I'll need to look at if I want to improve the logic for centering the content, though that's decent for now
+        canvas.create_window((250, 0), window=self.canvas_frame, anchor=tk.NW)
 
 # Define root window
 root = tk.Tk()
