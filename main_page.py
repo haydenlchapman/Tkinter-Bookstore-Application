@@ -19,15 +19,15 @@ class MainPage(tk.Frame):
         self.create_widgets(button_color, background_color, font_name, page_title)
 
     def create_widgets(self, button_color, background_color, font_name, page_title):
-        # Create, style, and pack quit button
+        # Quit button
         tk.Button(self, text="Quit", font=(font_name, 15), bg=button_color, command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
 
-        # Create and position page title
+        # Page title
         self.page_title = tk.Label(self, text=page_title, font=(font_name, 40))
         self.page_title.config(bg=background_color)
         self.page_title.pack(pady=100)
 
-        # Create and position search bar and search button beside one another
+        # Search bar and search button
         search_widgets = tk.Frame(self, background=background_color)
         tk.Entry(search_widgets, font=(font_name, 16)).pack(side=tk.LEFT, pady=20) # Search bar
         tk.Button(search_widgets, text="Search", bg=button_color, font=(font_name, 15)).pack(side=tk.LEFT, padx=5) # Search button
@@ -36,17 +36,17 @@ class MainPage(tk.Frame):
         self.create_book_widgets(background_color)
 
     def create_book_widgets(self, background_color):
-        # Create and position book catalogue
+        # Book catalogue frame
         book_catalogue = tk.Frame(self)
         book_catalogue.configure(bg=background_color)
         book_catalogue.pack()
 
-        # Create books and add them to the book catalogue frame
-        self.image_refs = []  # Maintain a list of books to prevent garbage collection of books after loop terminates
-        random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order of genre
+        # Books
+        self.image_refs = []  # Maintain list of books to prevent garbage collection images
+        random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order
         book_row, book_column = 0, 0
         for book_index, book in enumerate(book_list):
-            book_cover = Image.open(book.cover_path).resize((252, 380)) # Access book's cover at its specified path
+            book_cover = Image.open(book.cover_path).resize((252, 380)) # Retrieve book cover from its path
             book_cover = ImageTk.PhotoImage(book_cover)  # Convert cover into a Tk-compatible image
             book_entry = tk.Button(book_catalogue, image=book_cover, bd=0)
             book_entry.grid(row=book_row, column=book_column, padx=10, pady=10)
@@ -60,7 +60,7 @@ class MainPage(tk.Frame):
                 book_column += 1
 
     def create_canvas(self):
-        # Configure canvas and scrollbar
+        # Canvas and scrollbar
         canvas = tk.Canvas(self)
         canvas.pack(fill="both", expand=True)
         scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=canvas.yview)
