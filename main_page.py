@@ -7,15 +7,15 @@ from PIL import ImageTk, Image
 from books.book_list import book_list
 
 # Constants
-BACKGROUND_COLOR = "#f5f5dc" # Beige
+BEIGE = "#f5f5dc" # Beige
 BOOKSTORE_TITLE = "Flourishing Blotts"
 DEFAULT_FONT = "Cambria"
 
 class MainPage(tk.Frame):
-    def __init__(self, root=None, background_color=BACKGROUND_COLOR, font_name=DEFAULT_FONT, page_title=BOOKSTORE_TITLE, button_color="#B0C4DE"):
+    def __init__(self, root=None, background_color=BEIGE, font_name=DEFAULT_FONT, page_title=BOOKSTORE_TITLE, button_color="#B0C4DE"):
         super().__init__(root) # Create our frame in the root window
         self.configure(bg=background_color)
-        self.pack(fill=tk.X)
+        self.pack(fill=tk.BOTH, expand=True)
         self.create_widgets(button_color, background_color, font_name, page_title)
 
     def create_widgets(self, button_color, background_color, font_name, page_title):
@@ -74,7 +74,6 @@ class MainPage(tk.Frame):
 # Define root window
 root = tk.Tk()
 root.title(BOOKSTORE_TITLE)
-root.configure(bg=BACKGROUND_COLOR) # Assign root beige color
 root.attributes("-fullscreen", True) # Enable fullscreen
 
 MainPage().mainloop() # Instantiate and run main page
