@@ -16,10 +16,7 @@ class MainPage(tk.Frame):
         super().__init__(root) # Create our frame in the root window
         self.configure(bg=background_color)
         self.pack(fill=tk.BOTH, expand=True)
-
-        # Canvas
-        self.create_canvas(background_color)
-
+        self.create_canvas(background_color) # Enables scroll functionality
         self.create_widgets(button_color, background_color, font_name, page_title)
 
     def create_widgets(self, button_color, background_color, font_name, page_title):
@@ -49,7 +46,7 @@ class MainPage(tk.Frame):
         self.image_refs = []  # Maintain list of books to prevent garbage collection images
         random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order
         book_row, book_column = 0, 0
-        for book_index, book in enumerate(book_list):
+        for book_index, book in enumerate(book_list[0:30]):
             book_cover = Image.open(book.cover_path).resize((252, 380)) # Retrieve book cover from its path
             book_cover = ImageTk.PhotoImage(book_cover)  # Convert cover into a Tk-compatible image
             book_entry = tk.Button(book_catalogue, image=book_cover, bd=0)
@@ -76,6 +73,7 @@ class MainPage(tk.Frame):
 
         # I wish I could use a an expand/fill type of strategy here, but idk how so i just passed bg color to everything
         # Additionally, I think this is what I'll need to look at if I want to improve the logic for centering the content, though that's decent for now
+        # ALSO, I'd like the quit button to be in the actual far right corner of the screen
         canvas.create_window((250, 0), window=self.canvas_frame, anchor=tk.NW)
 
 # Define root window
