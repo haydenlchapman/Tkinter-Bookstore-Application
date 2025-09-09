@@ -14,32 +14,39 @@ DEFAULT_FONT = "Cambria"
 class MainPage(tk.Frame):
     def __init__(self, root=None, background_color=BEIGE, font_name=DEFAULT_FONT, page_title=BOOKSTORE_TITLE, button_color="#B0C4DE"):
         super().__init__(root) # Create our frame in the root window
+
+        # Instance variables
+        self.background_color = background_color
+        self.font_name = font_name
+        self.page_title = page_title
+        self.button_color = button_color
+
         self.configure(bg=background_color)
         self.pack(fill=tk.BOTH, expand=True)
-        self.create_canvas(background_color) # Enables scroll functionality
-        self.create_widgets(button_color, background_color, font_name, page_title)
+        self.create_canvas() # Enables scroll functionality
+        self.create_widgets()
 
-    def create_widgets(self, button_color, background_color, font_name, page_title):
+    def create_widgets(self):
         # Quit button
-        tk.Button(self.canvas_frame, text="Quit", font=(font_name, 15), bg=button_color, command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
+        tk.Button(self.canvas_frame, text="Quit", font=(self.font_name, 15), bg=self.button_color, command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
 
         # Page title
-        self.page_title = tk.Label(self.canvas_frame, text=page_title, font=(font_name, 40))
-        self.page_title.config(bg=background_color)
+        self.page_title = tk.Label(self.canvas_frame, text=self.page_title, font=(self.font_name, 40))
+        self.page_title.config(bg=self.background_color)
         self.page_title.pack(pady=100)
 
         # Search bar and search button
-        search_widgets = tk.Frame(self.canvas_frame, background=background_color)
-        tk.Entry(search_widgets, font=(font_name, 16)).pack(side=tk.LEFT, pady=20) # Search bar
-        tk.Button(search_widgets, text="Search", bg=button_color, font=(font_name, 15)).pack(side=tk.LEFT, padx=5) # Search button
+        search_widgets = tk.Frame(self.canvas_frame, background=self.background_color)
+        tk.Entry(search_widgets, font=(self.font_name, 16)).pack(side=tk.LEFT, pady=20) # Search bar
+        tk.Button(search_widgets, text="Search", bg=self.button_color, font=(self.font_name, 15)).pack(side=tk.LEFT, padx=5) # Search button
         search_widgets.pack()
 
-        self.create_book_widgets(background_color)
+        self.create_book_widgets()
 
-    def create_book_widgets(self, background_color):
+    def create_book_widgets(self):
         # Book catalogue frame
         book_catalogue = tk.Frame(self.canvas_frame)
-        book_catalogue.configure(bg=background_color)
+        book_catalogue.configure(bg=self.background_color)
         book_catalogue.pack()
 
         # Books
@@ -60,16 +67,16 @@ class MainPage(tk.Frame):
             elif book_index != 0:
                 book_column += 1
 
-    def create_canvas(self, background_color):
+    def create_canvas(self):
         # Canvas and scrollbar
-        canvas = tk.Canvas(self, bg=background_color)
+        canvas = tk.Canvas(self, bg=self.background_color)
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         scrollbar = ttk.Scrollbar(self, orient=tk.VERTICAL, command=canvas.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         canvas.configure(yscrollcommand=scrollbar.set)
         canvas.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
 
-        self.canvas_frame = tk.Frame(canvas, bg=background_color)
+        self.canvas_frame = tk.Frame(canvas, bg=self.background_color)
 
         # I wish I could use a an expand/fill type of strategy here, but idk how so i just passed bg color to everything
         # Additionally, I think this is what I'll need to look at if I want to improve the logic for centering the content, though that's decent for now
