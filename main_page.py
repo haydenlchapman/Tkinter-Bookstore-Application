@@ -1,6 +1,6 @@
 import random
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, PhotoImage
 
 from PIL import ImageTk, Image
 
@@ -10,6 +10,7 @@ from books.book_list import book_list
 BEIGE = "#f5f5dc" # Beige
 BOOKSTORE_TITLE = "Flourishing Blotts"
 DEFAULT_FONT = "Cambria"
+SEARCH_ICON_PATH = "images/search_icon.png"
 
 class MainPage(tk.Frame):
     def __init__(self, root=None, background_color=BEIGE, font_name=DEFAULT_FONT, page_title=BOOKSTORE_TITLE, button_color="#B0C4DE"):
@@ -20,6 +21,7 @@ class MainPage(tk.Frame):
         self.font_name = font_name
         self.page_title = page_title
         self.button_color = button_color
+        self.image_refs = []  # Maintain list of books to prevent garbage collection images
 
         self.configure(bg=background_color)
         self.pack(fill=tk.BOTH, expand=True)
@@ -37,8 +39,10 @@ class MainPage(tk.Frame):
 
         # Search bar and search button
         search_widgets = tk.Frame(self.canvas_frame, background=self.background_color)
-        tk.Entry(search_widgets, font=(self.font_name, 16)).pack(side=tk.LEFT, pady=20) # Search bar
-        tk.Button(search_widgets, text="Search", bg=self.button_color, font=(self.font_name, 15)).pack(side=tk.LEFT, padx=5) # Search button
+        tk.Entry(search_widgets, font=(self.font_name, 16), width=50).pack(side=tk.LEFT, pady=20, ipadx=20, ipady=20) # Search bar
+        self.search_icon = Image.open(SEARCH_ICON_PATH).resize((65, 63))
+        self.search_icon = ImageTk.PhotoImage(self.search_icon)
+        tk.Button(search_widgets, image=self.search_icon).pack(side=tk.LEFT) # Search button
         search_widgets.pack()
 
         self.create_book_widgets()
@@ -50,7 +54,6 @@ class MainPage(tk.Frame):
         book_catalogue.pack()
 
         # Books
-        self.image_refs = []  # Maintain list of books to prevent garbage collection images
         random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order
         book_row, book_column = 0, 0
         for book_index, book in enumerate(book_list[0:30]):
