@@ -21,7 +21,6 @@ class MainPage(tk.Frame):
         self.background_color = background_color
         self.font_name = font_name
         self.page_title = page_title
-        self.button_color = button_color
         self.image_refs = []  # Maintain list of books to prevent garbage collection of images
 
         self.configure(bg=background_color)
