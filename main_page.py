@@ -14,7 +14,7 @@ SEARCH_ICON_PATH = "images/search_icon.png"
 EXIT_IMAGE_PATH = "images/exit_cropped.png"
 
 class MainPage(tk.Frame):
-    def __init__(self, root=None, background_color=BEIGE, font_name=DEFAULT_FONT, page_title=BOOKSTORE_TITLE, button_color="#B0C4DE"):
+    def __init__(self, root=None, background_color=BEIGE, font_name=DEFAULT_FONT, page_title=BOOKSTORE_TITLE):
         super().__init__(root) # Create frame in root window
 
         # Instance variables
