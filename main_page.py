@@ -14,14 +14,14 @@ SEARCH_ICON_PATH = "images/search_icon.png"
 
 class MainPage(tk.Frame):
     def __init__(self, root=None, background_color=BEIGE, font_name=DEFAULT_FONT, page_title=BOOKSTORE_TITLE, button_color="#B0C4DE"):
-        super().__init__(root) # Create our frame in the root window
+        super().__init__(root) # Create frame in root window
 
         # Instance variables
         self.background_color = background_color
         self.font_name = font_name
         self.page_title = page_title
         self.button_color = button_color
-        self.image_refs = []  # Maintain list of books to prevent garbage collection images
+        self.image_refs = []  # Maintain list of books to prevent garbage collection of images
 
         self.configure(bg=background_color)
         self.pack(fill=tk.BOTH, expand=True)
@@ -30,7 +30,7 @@ class MainPage(tk.Frame):
 
     def create_widgets(self):
         # Quit button
-        self.exit_image = Image.open("images/exit_cropped.png").resize((50, 25)) # Make accurate to image
+        self.exit_image = Image.open("images/exit_cropped.png").resize((50, 25))
         self.exit_image = ImageTk.PhotoImage(self.exit_image)
         tk.Button(self.canvas_frame, image=self.exit_image, command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
 
@@ -50,16 +50,15 @@ class MainPage(tk.Frame):
         self.create_books()
 
     def create_books(self):
-        # Book catalogue frame
         book_catalogue = tk.Frame(self.canvas_frame)
         book_catalogue.configure(bg=self.background_color)
         book_catalogue.pack()
 
-        # Books
+        # Draw books
         random.shuffle(book_list) # Shuffle book list so it can be iterated without books appearing in order
         book_row, book_column = 0, 0
         for book_index, book in enumerate(book_list[0:30]):
-            book_cover = Image.open(book.cover_path).resize((252, 380)) # Retrieve book cover from its path
+            book_cover = Image.open(book.cover_path).resize((252, 380)) # Retrieve book cover from path
             book_cover = ImageTk.PhotoImage(book_cover)  # Convert cover into a Tk-compatible image
             book_entry = tk.Button(book_catalogue, image=book_cover, bd=0)
             book_entry.grid(row=book_row, column=book_column, padx=10, pady=10)
