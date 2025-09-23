@@ -25,7 +25,7 @@ class MainPage(tk.Frame):
 
         self.configure(bg=background_color)
         self.pack(fill=tk.BOTH, expand=True)
-        self.create_canvas() # Enables scroll
+        self.create_canvas() # Enable scroll
         self.create_widgets()
 
     def create_widgets(self):
