@@ -1,6 +1,6 @@
 import random
 import tkinter as tk
-from tkinter import ttk, PhotoImage
+from tkinter import ttk
 
 from PIL import ImageTk, Image
 
