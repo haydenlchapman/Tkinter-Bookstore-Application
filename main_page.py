@@ -30,19 +30,21 @@ class MainPage(tk.Frame):
 
     def create_widgets(self):
         # Quit button
-        tk.Button(self.canvas_frame, text="Quit", font=(self.font_name, 15), bg=self.button_color, command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
+        self.exit_image = Image.open("images/exit_cropped.png").resize((50, 25)) # Make accurate to image
+        self.exit_image = ImageTk.PhotoImage(self.exit_image)
+        tk.Button(self.canvas_frame, image=self.exit_image, command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
 
         # Page title
-        self.page_title = tk.Label(self.canvas_frame, text=self.page_title, font=(self.font_name, 40))
+        self.page_title = tk.Label(self.canvas_frame, text=self.page_title, font=(self.font_name, 100))
         self.page_title.config(bg=self.background_color)
         self.page_title.pack(pady=100)
 
         # Search bar and search button
         search_widgets = tk.Frame(self.canvas_frame, background=self.background_color)
         tk.Entry(search_widgets, font=(self.font_name, 16), width=50).pack(side=tk.LEFT, pady=20, ipadx=20, ipady=20) # Search bar
-        self.search_icon = Image.open(SEARCH_ICON_PATH).resize((65, 63))
+        self.search_icon = Image.open(SEARCH_ICON_PATH).resize((65, 66))
         self.search_icon = ImageTk.PhotoImage(self.search_icon)
-        tk.Button(search_widgets, image=self.search_icon).pack(side=tk.LEFT) # Search button
+        tk.Button(search_widgets, image=self.search_icon, bd=0).pack(side=tk.LEFT) # Search button
         search_widgets.pack()
 
         self.create_book_widgets()
