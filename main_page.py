@@ -11,6 +11,7 @@ BEIGE = "#f5f5dc" # Beige
 BOOKSTORE_TITLE = "Flourishing Blotts"
 DEFAULT_FONT = "Cambria"
 SEARCH_ICON_PATH = "images/search_icon.png"
+EXIT_IMAGE_PATH = "images/exit_cropped.png"
 
 class MainPage(tk.Frame):
     def __init__(self, root=None, background_color=BEIGE, font_name=DEFAULT_FONT, page_title=BOOKSTORE_TITLE, button_color="#B0C4DE"):
@@ -30,7 +31,7 @@ class MainPage(tk.Frame):
 
     def create_widgets(self):
         # Quit button
-        self.exit_image = Image.open("images/exit_cropped.png").resize((50, 25))
+        self.exit_image = Image.open(EXIT_IMAGE_PATH).resize((50, 25))
         self.exit_image = ImageTk.PhotoImage(self.exit_image)
         tk.Button(self.canvas_frame, image=self.exit_image, command=self.quit).pack(padx=40, pady=25, anchor=tk.E)
 
