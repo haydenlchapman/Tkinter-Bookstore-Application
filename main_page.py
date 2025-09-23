@@ -47,9 +47,9 @@ class MainPage(tk.Frame):
         tk.Button(search_widgets, image=self.search_icon, bd=0).pack(side=tk.LEFT) # Search button
         search_widgets.pack()
 
-        self.create_book_widgets()
+        self.create_books()
 
-    def create_book_widgets(self):
+    def create_books(self):
         # Book catalogue frame
         book_catalogue = tk.Frame(self.canvas_frame)
         book_catalogue.configure(bg=self.background_color)
