@@ -21,11 +21,11 @@ class MainPage(tk.Frame):
         self.background_color = background_color
         self.font_name = font_name
         self.page_title = page_title
-        self.images = []  # Maintain list of book covers to prevent garbage collection
+        self.images = []  # Book cover list to prevent garbage collection
 
         self.configure(bg=background_color)
         self.pack(fill=tk.BOTH, expand=True)
-        self.create_canvas() # Enables scroll functionality
+        self.create_canvas() # Enables scroll
         self.create_widgets()
 
     def create_widgets(self):
