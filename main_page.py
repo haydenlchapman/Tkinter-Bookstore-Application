@@ -21,7 +21,7 @@ class MainPage(tk.Frame):
         self.background_color = background_color
         self.font_name = font_name
         self.page_title = page_title
-        self.image_refs = []  # Maintain list of books to prevent garbage collection of images
+        self.images = []  # Maintain list of book covers to prevent garbage collection
 
         self.configure(bg=background_color)
         self.pack(fill=tk.BOTH, expand=True)
@@ -39,14 +39,7 @@ class MainPage(tk.Frame):
         self.page_title.config(bg=self.background_color)
         self.page_title.pack(pady=100)
 
-        # Search bar and search button
-        search_widgets = tk.Frame(self.canvas_frame, background=self.background_color)
-        tk.Entry(search_widgets, font=(self.font_name, 16), width=50).pack(side=tk.LEFT, pady=20, ipadx=20, ipady=20) # Search bar
-        self.search_icon = Image.open(SEARCH_ICON_PATH).resize((65, 66))
-        self.search_icon = ImageTk.PhotoImage(self.search_icon)
-        tk.Button(search_widgets, image=self.search_icon, bd=0).pack(side=tk.LEFT) # Search button
-        search_widgets.pack()
-
+        self.search_bar() # Search bar and search button
         self.create_books()
 
     def create_books(self):
@@ -62,7 +55,7 @@ class MainPage(tk.Frame):
             book_cover = ImageTk.PhotoImage(book_cover)  # Convert cover into a Tk-compatible image
             book_entry = tk.Button(book_catalogue, image=book_cover, bd=0)
             book_entry.grid(row=book_row, column=book_column, padx=10, pady=10)
-            self.image_refs.append(book_cover)
+            self.images.append(book_cover)
 
             # Update grid position such that there are 5 books per row
             if book_index % 5 == 0 and book_index != 0:
@@ -86,6 +79,19 @@ class MainPage(tk.Frame):
         # Additionally, I think this is what I'll need to look at if I want to improve the logic for centering the content, though that's decent for now
         # ALSO, I'd like the quit button to be in the actual far right corner of the screen
         canvas.create_window((250, 0), window=self.canvas_frame, anchor=tk.NW)
+
+    def search_bar(self):
+        search_widgets = tk.Frame(self.canvas_frame, background=self.background_color)
+
+        # Search bar
+        tk.Entry(search_widgets, font=(self.font_name, 16), width=50).pack(side=tk.LEFT, pady=20, ipadx=20, ipady=20)
+
+        # Search button
+        self.search_icon = Image.open(SEARCH_ICON_PATH).resize((65, 66))
+        self.search_icon = ImageTk.PhotoImage(self.search_icon)
+        tk.Button(search_widgets, image=self.search_icon, bd=0).pack(side=tk.LEFT)
+
+        search_widgets.pack()
 
 # Define root window
 root = tk.Tk()
