@@ -93,4 +93,4 @@ root = tk.Tk()
 root.title(BOOKSTORE_TITLE)
 root.attributes("-fullscreen", True) # Enable fullscreen
 
-MainPage().mainloop() # Instantiate and run main page
+MainPage(root).mainloop() # Instantiate and run main page
